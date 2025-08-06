@@ -39,7 +39,7 @@ export default function PCHollowType2Page() {
               Double wall polycarbonate sheets with exceptional thermal insulation and structural strength for demanding
               applications.
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
               <Download className="mr-2 h-4 w-4" />
               Download Brochure
             </Button>
@@ -200,7 +200,6 @@ export default function PCHollowType2Page() {
                 <Link href="/contact">Get Quote</Link>
               </Button>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"

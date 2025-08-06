@@ -30,7 +30,7 @@ export default function PCHollowTypeSPage() {
               Single wall polycarbonate sheets offering excellent light transmission and versatile applications for
               various architectural needs.
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
               <Download className="mr-2 h-4 w-4" />
               Download Brochure
             </Button>
@@ -161,7 +161,6 @@ export default function PCHollowTypeSPage() {
                 <Link href="/contact">Get Quote</Link>
               </Button>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
