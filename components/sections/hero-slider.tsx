@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image" // Import Image
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image"; // Import Image
 
 export default function HeroSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
@@ -23,7 +23,8 @@ export default function HeroSlider() {
     },
     {
       title: "WHO WE ARE - Innovation & Excellence",
-      subtitle: "Shree Ganesh Polymers - Trusted Manufacturing Partner Since 2013",
+      subtitle:
+        "Shree Ganesh Polymers - Trusted Manufacturing Partner Since 2013",
       description:
         "Welcome to Shree Ganesh Polymers, a trusted manufacturer of high-quality polycarbonate sheets since 2013. Backed by the legacy of the Shree Ganesh Group (est. 2000), we deliver durable, innovative, and sustainable plastic solutions for industries worldwide.",
       cta: "Learn More",
@@ -33,7 +34,8 @@ export default function HeroSlider() {
     },
     {
       title: "SGLITE® - ENGINEERING LIGHT, DELIVERING STRENGTH",
-      subtitle: "Sustainable | Growing | Lightweight | Innovative | Tough | Engineering",
+      subtitle:
+        "Sustainable | Growing | Lightweight | Innovative | Tough | Engineering",
       description:
         "At SGLite, we are committed to delivering high-performance polycarbonate sheet solutions that are innovative, sustainable, and reliable. We aim to empower industries around the world with products that combine strength, clarity, and long-term durability.",
       cta: "View Applications",
@@ -41,22 +43,22 @@ export default function HeroSlider() {
       image: "/images/hero-slider-placeholder.png", // Updated src to static image
       imageAlt: "SGLite Values",
     },
-  ]
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [slides.length])
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <section className="relative h-screen overflow-hidden">
@@ -64,10 +66,16 @@ export default function HeroSlider() {
         <div
           key={index}
           className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-            index === currentSlide ? "translate-x-0" : index < currentSlide ? "-translate-x-full" : "translate-x-full"
+            index === currentSlide
+              ? "translate-x-0"
+              : index < currentSlide
+              ? "-translate-x-full"
+              : "translate-x-full"
           }`}
         >
-          <div className={`relative h-full bg-gradient-to-r ${slide.bgGradient} text-white`}>
+          <div
+            className={`relative h-full bg-gradient-to-r ${slide.bgGradient} text-white`}
+          >
             {/* Add a background image using next/image */}
             <Image
               src={slide.image || "/placeholder.svg"}
@@ -82,16 +90,24 @@ export default function HeroSlider() {
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="text-center">
                   <div className="animate-slide-in-left max-w-5xl mx-auto">
-                    <Badge className="mb-6 bg-white bg-opacity-20 text-white border-white/30 text-lg px-6 py-2">
+                    <Badge className="mb-6 bg-black bg-opacity-20 text-white border-white/30 text-lg px-6 py-2">
                       ISO 9001:2015 Certified | IEC Registered | BIS Approved
                     </Badge>
-                    <h1 className="text-4xl lg:text-7xl font-bold leading-tight mb-8">{slide.title}</h1>
-                    <p className="text-2xl lg:text-3xl text-blue-100 mb-8 font-medium">{slide.subtitle}</p>
+                    <h1 className="text-4xl lg:text-7xl font-bold leading-tight mb-8">
+                      {slide.title}
+                    </h1>
+                    <p className="text-2xl lg:text-3xl text-blue-100 mb-8 font-medium">
+                      {slide.subtitle}
+                    </p>
                     <p className="text-lg lg:text-xl text-blue-50 mb-12 max-w-4xl mx-auto leading-relaxed">
                       {slide.description}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                      <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4">
+                      <Button
+                        asChild
+                        size="lg"
+                        className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4"
+                      >
                         <Link href="/products">{slide.cta}</Link>
                       </Button>
                       <Button
@@ -138,5 +154,5 @@ export default function HeroSlider() {
         ))}
       </div>
     </section>
-  )
+  );
 }
