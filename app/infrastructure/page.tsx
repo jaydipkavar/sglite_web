@@ -2,7 +2,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Factory, List, Settings, CheckCircle, Globe } from "lucide-react";
 import ContactCta from "@/components/sections/contact-cta";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export default function InfrastructurePage() {
   const sections = [
@@ -99,7 +98,6 @@ export default function InfrastructurePage() {
       <ContactCta />
 
       {/* Scroll To Top */}
-      <ScrollToTop />
     </div>
   );
 }

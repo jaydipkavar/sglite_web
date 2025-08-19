@@ -1,10 +1,18 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Building, Factory, Shield, Lightbulb, Home, TreePine, Waves, Eye } from "lucide-react"
-import Image from "next/image"
-import ApplicationsDetailed from "@/components/sections/applications-detailed"
-import ContactCta from "@/components/sections/contact-cta"
-import { ScrollToTop } from "@/components/ui/scroll-to-top"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Building,
+  Factory,
+  Shield,
+  Lightbulb,
+  Home,
+  TreePine,
+  Waves,
+  Eye,
+} from "lucide-react";
+import Image from "next/image";
+import ApplicationsDetailed from "@/components/sections/applications-detailed";
+import ContactCta from "@/components/sections/contact-cta";
 
 export default function ApplicationsPage() {
   const applications = [
@@ -71,7 +79,7 @@ export default function ApplicationsPage() {
       image: "/images/applications-placeholder.png", // Updated src to static image
       icon: Shield,
     },
-  ]
+  ];
 
   const applicationCategories = [
     {
@@ -125,7 +133,7 @@ export default function ApplicationsPage() {
         "Bus Stops & Waiting Shelters – Strong, transparent roofing and side panels",
       ],
     },
-  ]
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -137,8 +145,9 @@ export default function ApplicationsPage() {
             Applications of Solid Polycarbonate Sheets
           </h1>
           <p className="text-xl text-blue-100 max-w-4xl mx-auto animate-slide-up">
-            Discover the wide range of applications where SGlite® PC Hollow Polycarbonate Sheets deliver exceptional
-            performance, durability, and value across multiple industries.
+            Discover the wide range of applications where SGlite® PC Hollow
+            Polycarbonate Sheets deliver exceptional performance, durability,
+            and value across multiple industries.
           </p>
         </div>
       </section>
@@ -166,7 +175,9 @@ export default function ApplicationsPage() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{application.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {application.title}
+                  </h3>
                   <p className="text-gray-600">{application.description}</p>
                 </CardContent>
               </Card>
@@ -179,9 +190,12 @@ export default function ApplicationsPage() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Detailed Application Categories</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Detailed Application Categories
+            </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Comprehensive overview of how SGLite® polycarbonate sheets serve various industries and applications.
+              Comprehensive overview of how SGLite® polycarbonate sheets serve
+              various industries and applications.
             </p>
           </div>
 
@@ -193,10 +207,15 @@ export default function ApplicationsPage() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    {category.title}
+                  </h3>
                   <ul className="space-y-3">
                     {category.applications.map((app, idx) => (
-                      <li key={idx} className="text-gray-600 text-sm leading-relaxed">
+                      <li
+                        key={idx}
+                        className="text-gray-600 text-sm leading-relaxed"
+                      >
                         <span className="w-1.5 h-1.5 bg-blue-600 rounded-full inline-block mr-2"></span>
                         {app}
                       </li>
@@ -213,7 +232,9 @@ export default function ApplicationsPage() {
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Key Benefits for These Applications</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Key Benefits for These Applications
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -221,31 +242,49 @@ export default function ApplicationsPage() {
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-blue-600">200x</span>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Stronger than Glass</h3>
-              <p className="text-gray-600 text-sm">Superior impact resistance</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Stronger than Glass
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Superior impact resistance
+              </p>
             </div>
-            <div className="text-center animate-bounce-in" style={{ animationDelay: "0.1s" }}>
+            <div
+              className="text-center animate-bounce-in"
+              style={{ animationDelay: "0.1s" }}
+            >
               <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Lightbulb className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Lightweight</h3>
               <p className="text-gray-600 text-sm">Easy to install</p>
             </div>
-            <div className="text-center animate-bounce-in" style={{ animationDelay: "0.2s" }}>
+            <div
+              className="text-center animate-bounce-in"
+              style={{ animationDelay: "0.2s" }}
+            >
               <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-orange-600" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">UV Resistant</h3>
               <p className="text-gray-600 text-sm">Weather resistant</p>
             </div>
-            <div className="text-center animate-bounce-in" style={{ animationDelay: "0.3s" }}>
+            <div
+              className="text-center animate-bounce-in"
+              style={{ animationDelay: "0.3s" }}
+            >
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Eye className="h-8 w-8 text-purple-600" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Multiple Finishes</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Multiple Finishes
+              </h3>
               <p className="text-gray-600 text-sm">Colors and textures</p>
             </div>
-            <div className="text-center animate-bounce-in" style={{ animationDelay: "0.4s" }}>
+            <div
+              className="text-center animate-bounce-in"
+              style={{ animationDelay: "0.4s" }}
+            >
               <div className="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-red-600">B1</span>
               </div>
@@ -263,7 +302,6 @@ export default function ApplicationsPage() {
       <ContactCta />
 
       {/* Scroll To Top Button */}
-      <ScrollToTop />
     </div>
-  )
+  );
 }

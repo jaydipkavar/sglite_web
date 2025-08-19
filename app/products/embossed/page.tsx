@@ -1,8 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Image from "next/image"
-import ContactCta from "@/components/sections/contact-cta"
-import { ScrollToTop } from "@/components/ui/scroll-to-top"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import ContactCta from "@/components/sections/contact-cta";
 
 export default function EmbossedPage() {
   const features = [
@@ -14,7 +13,7 @@ export default function EmbossedPage() {
     "Easy to clean and maintain",
     "Reduces glare and harsh sunlight",
     "Suitable for both indoor and outdoor applications",
-  ]
+  ];
 
   const applications = [
     "Room partitions",
@@ -25,7 +24,7 @@ export default function EmbossedPage() {
     "Office dividers",
     "Ceiling light covers",
     "Backlit signs",
-  ]
+  ];
 
   const technicalSpecs = [
     { property: "Light Transmission (Clear)", value: "88%" },
@@ -34,7 +33,7 @@ export default function EmbossedPage() {
     { property: "Surface Finish", value: "Embossed Textured" },
     { property: "Service Temperature", value: "-40°C to +120°C" },
     { property: "Fire Rating", value: "B1 (Self-extinguishing)" },
-  ]
+  ];
 
   return (
     <div className="min-h-screen">
@@ -42,10 +41,15 @@ export default function EmbossedPage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-slide-up">
-            <Badge className="mb-4 bg-white bg-opacity-20">Embossed Sheet</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Embossed Surface Polycarbonate Sheet</h1>
+            <Badge className="mb-4 bg-white bg-opacity-20">
+              Embossed Sheet
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Embossed Surface Polycarbonate Sheet
+            </h1>
             <p className="text-xl md:text-2xl mb-8">
-              Textured surface for enhanced privacy and light diffusion with decorative appeal.
+              Textured surface for enhanced privacy and light diffusion with
+              decorative appeal.
             </p>
           </div>
         </div>
@@ -66,7 +70,9 @@ export default function EmbossedPage() {
             </div>
             <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-3xl font-bold text-blue-600 mb-4">Product Highlights</CardTitle>
+                <CardTitle className="text-3xl font-bold text-blue-600 mb-4">
+                  Product Highlights
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
@@ -87,15 +93,20 @@ export default function EmbossedPage() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Ideal Applications</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Ideal Applications
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              SGLite Embossed Polycarbonate Sheets are ideal for applications where diffused light and a decorative
-              finish are desired.
+              SGLite Embossed Polycarbonate Sheets are ideal for applications
+              where diffused light and a decorative finish are desired.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {applications.map((app, index) => (
-              <Card key={index} className="p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <Card
+                key={index}
+                className="p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
                 <CardContent className="p-0">
                   <p className="text-gray-700 text-lg font-medium">{app}</p>
                 </CardContent>
@@ -109,9 +120,12 @@ export default function EmbossedPage() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Technical Specifications
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Detailed specifications for SGLite Embossed Surface Polycarbonate Sheets.
+              Detailed specifications for SGLite Embossed Surface Polycarbonate
+              Sheets.
             </p>
           </div>
           <Card className="max-w-4xl mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -120,15 +134,26 @@ export default function EmbossedPage() {
                 <table className="w-full border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-blue-600 text-white">
-                      <th className="border border-gray-300 p-3 text-left">Property</th>
-                      <th className="border border-gray-300 p-3 text-left">Value</th>
+                      <th className="border border-gray-300 p-3 text-left">
+                        Property
+                      </th>
+                      <th className="border border-gray-300 p-3 text-left">
+                        Value
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {technicalSpecs.map((spec, index) => (
-                      <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
-                        <td className="border border-gray-300 p-3 font-medium">{spec.property}</td>
-                        <td className="border border-gray-300 p-3">{spec.value}</td>
+                      <tr
+                        key={index}
+                        className="hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        <td className="border border-gray-300 p-3 font-medium">
+                          {spec.property}
+                        </td>
+                        <td className="border border-gray-300 p-3">
+                          {spec.value}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -140,7 +165,6 @@ export default function EmbossedPage() {
       </section>
 
       <ContactCta />
-      <ScrollToTop />
     </div>
-  )
+  );
 }

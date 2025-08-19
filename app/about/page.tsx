@@ -11,7 +11,6 @@ import {
   Target,
 } from "lucide-react";
 import ContactCta from "@/components/sections/contact-cta";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export default function AboutPage() {
   const stats = [
@@ -264,7 +263,6 @@ export default function AboutPage() {
       <ContactCta />
 
       {/* Scroll To Top */}
-      <ScrollToTop />
     </div>
   );
 }

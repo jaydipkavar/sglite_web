@@ -1,12 +1,11 @@
-import Hero from "@/components/sections/hero"
-import AboutCompany from "@/components/sections/about-company"
-import ProductsOverview from "@/components/sections/products-overview"
-import ApplicationsPreview from "@/components/sections/applications-preview"
-import OurProjects from "@/components/sections/our-projects"
-import WhyChooseSGLite from "@/components/sections/why-choose-sglite"
-import OurCommitment from "@/components/sections/our-commitment"
-import CallToAction from "@/components/sections/call-to-action"
-import { ScrollToTop } from "@/components/ui/scroll-to-top"
+import Hero from "@/components/sections/hero";
+import AboutCompany from "@/components/sections/about-company";
+import ProductsOverview from "@/components/sections/products-overview";
+import ApplicationsPreview from "@/components/sections/applications-preview";
+import OurProjects from "@/components/sections/our-projects";
+import WhyChooseSGLite from "@/components/sections/why-choose-sglite";
+import OurCommitment from "@/components/sections/our-commitment";
+import CallToAction from "@/components/sections/call-to-action";
 
 export default function HomePage() {
   return (
@@ -19,7 +18,6 @@ export default function HomePage() {
       <WhyChooseSGLite />
       <OurCommitment />
       <CallToAction />
-      <ScrollToTop />
     </div>
-  )
+  );
 }
