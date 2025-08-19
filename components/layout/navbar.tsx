@@ -78,9 +78,9 @@ export default function Navbar() {
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/about#infrastructure"
+                          href="/infrastructure"
                           className={`block rounded-md p-3 transition-colors duration-200 ${
-                            pathname.includes("#infrastructure")
+                            pathname.includes("/infrastructure")
                               ? "bg-blue-100 text-blue-700"
                               : "hover:bg-gray-100 hover:text-blue-600 focus:bg-gray-100 focus:text-blue-600"
                           }`}
@@ -163,7 +163,7 @@ export default function Navbar() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "Company Overview" },
-                { href: "/about#infrastructure", label: "Infrastructure" },
+                { href: "/infrastructure", label: "Infrastructure" },
                 { href: "/about#certification", label: "Certification" },
                 { href: "/products", label: "Products" },
                 { href: "/applications", label: "Applications" },
