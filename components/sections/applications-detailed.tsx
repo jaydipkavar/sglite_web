@@ -1,141 +1,177 @@
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Building, Factory, Shield, Lightbulb, Home, TreePine, Eye } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function ApplicationsDetailed() {
-  const applicationCategories = [
-    {
-      title: "1. Construction & Architecture",
-      icon: Building,
-      color: "text-blue-600",
-      applications: [
-        "Skylights and Roof lights – Transparent, UV-resistant glazing for natural lighting",
-        "Canopies & Awnings – Durable weather protection for homes, shops, and buildings",
-        "Facades & Cladding Panels – Strong and modern exterior finishes",
-      ],
-    },
-    {
-      title: "2. Industrial & Commercial Use",
-      icon: Factory,
-      color: "text-green-600",
-      applications: [
-        "Machine Guards & Safety Shields – High impact resistance makes it ideal for factory safety",
-        "Industrial Roofing & Wall Panels – Long-lasting, lightweight alternative to glass or metal",
-        "Warehouse Partitioning – Non-breakable transparent dividers",
-      ],
-    },
-    {
-      title: "3. Glazing and Security",
-      icon: Shield,
-      color: "text-red-600",
-      applications: [
-        "Windows & Doors (Clear or Tinted) – Safer than glass, with high optical clarity",
-        "Security Glazing & Riot Shields – Used where break-resistance is essential",
-      ],
-    },
-    {
-      title: "4. Signage and Displays",
-      icon: Eye,
-      color: "text-purple-600",
-      applications: [
-        "Backlit Signs & Advertising Panels – Light-diffusing and UV-stable",
-        "POP Displays & Kiosks – Stylish, lightweight, and shatterproof",
-      ],
-    },
-    {
-      title: "5. Interiors & Decor",
-      icon: Home,
-      color: "text-orange-600",
-      applications: [
-        "Room Partitions – Frosted or embossed finishes for privacy and design",
-        "Furniture Inserts & Cabinet Doors – Durable and elegant design element",
-      ],
-    },
-    {
-      title: "6. Lighting Applications",
-      icon: Lightbulb,
-      color: "text-yellow-600",
-      applications: [
-        "Light Diffuser Panels – Especially Embossed or Diamond finishes for uniform lighting",
-        "Ceiling Light Covers – Shatterproof and heat-resistant",
-      ],
-    },
-    {
-      title: "7. Outdoor Uses",
-      icon: TreePine,
-      color: "text-emerald-600",
-      applications: [
-        "Greenhouses (Compact for End Panels) – Transparent, UV-protected for plant growth",
-        "Bus Stops & Waiting Shelters – Strong, transparent roofing and side panels",
-      ],
-    },
-  ]
-
-  const keyBenefits = [
-    "200x stronger than glass",
-    "Lightweight and easy to install",
-    "UV and weather resistant",
-    "Available in multiple colors and finishes (Compact, Embossed, Diamond)",
-    "Fire-retardant and safe",
-  ]
-
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <Badge className="mb-4">Applications</Badge>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            ✅ Applications of Solid Polycarbonate Sheets
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            SGLite polycarbonate sheets serve a wide range of applications across multiple industries, providing
-            superior performance and reliability in every use case.
-          </p>
-        </div>
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <section className="mb-12 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+          Applications of SGLite® Polycarbonate Sheets
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          SGLite® polycarbonate sheets are incredibly versatile, offering superior performance across a wide range of
+          industries and applications.
+        </p>
+        <Button size="lg" className="text-lg px-8 py-4">
+          <Link href="/contact">Get a Quote</Link>
+        </Button>
+      </section>
 
-        {/* Application Categories */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {applicationCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-shadow animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3">
-                  <category.icon className={`h-6 w-6 ${category.color}`} />
-                  <span className="text-lg">{category.title}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {category.applications.map((app, idx) => (
-                    <li key={idx} className="text-gray-600 text-sm leading-relaxed">
-                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-full inline-block mr-3"></span>
-                      {app}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Architectural Glazing"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Architectural Glazing</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Ideal for skylights, barrel vaults, transparent roofing, and facades due to its clarity, strength, and UV
+            protection.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Safety Glazing"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Safety Glazing</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Used in security barriers, machine guards, riot shields, and protective screens where impact resistance is
+            critical.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Signage & Displays"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Signage & Displays</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Perfect for illuminated signs, display cases, point-of-sale displays, and exhibition stands due to its
+            clarity and ease of fabrication.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Greenhouses & Conservatories"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Greenhouses & Conservatories</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Provides excellent light transmission and thermal insulation, creating an optimal environment for plant
+            growth.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Sound Barriers"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Sound Barriers</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Effective in reducing noise pollution along highways, railway lines, and in industrial settings.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Industrial Applications"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Industrial Applications</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Used for machine covers, safety shields, protective enclosures, and vision panels in various industrial
+            environments.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Interior Design & Partitions"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Interior Design & Partitions</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Creates modern and durable interior partitions, decorative panels, and furniture elements.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Transportation"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Transportation</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Used in bus shelters, train windows, and vehicle glazing due to its lightweight and impact resistance.
+          </CardContent>
+        </Card>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/applications-placeholder.png"
+            alt="Medical & Healthcare"
+            width={400}
+            height={250}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">Medical & Healthcare</CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            Suitable for medical device components, cleanroom glazing, and protective barriers.
+          </CardContent>
+        </Card>
+      </section>
 
-        {/* Key Benefits */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Benefits for These Applications</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
-            {keyBenefits.map((benefit, index) => (
-              <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
-                <CardContent className="p-0 text-center">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mx-auto mb-3"></div>
-                  <p className="text-gray-700 text-sm font-medium">{benefit}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+      <section className="text-center py-12 bg-blue-50 rounded-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Have a Specific Application in Mind?</h2>
+        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          Our team can help you find the perfect SGLite® polycarbonate sheet solution for your unique project.
+        </p>
+        <Button size="lg" className="text-lg px-8 py-4">
+          <Link href="/contact">Consult Our Experts</Link>
+        </Button>
+      </section>
+    </div>
   )
 }

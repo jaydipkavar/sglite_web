@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -38,82 +37,51 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              About Us
-            </Link>
 
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 font-medium">
-                    Products
+                    About Us
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[500px] gap-3 p-4">
+                    <ul className="grid w-[200px] gap-3 p-4">
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/products"
+                          href="/about"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
                         >
-                          <div className="text-sm font-medium leading-none">All Products</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Complete range of solid polycarbonate sheets
-                          </p>
+                          <div className="text-sm font-medium leading-none">Company Overview</div>
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/products/compact"
+                          href="/about#infrastructure"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
                         >
-                          <div className="text-sm font-medium leading-none">Compact (Glossy) Sheet</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            89% light transmission with high-gloss finish
-                          </p>
+                          <div className="text-sm font-medium leading-none">Infrastructure</div>
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/products/embossed"
+                          href="/about#certification"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
                         >
-                          <div className="text-sm font-medium leading-none">Embossed Surface</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            88% light transmission with textured surface
-                          </p>
+                          <div className="text-sm font-medium leading-none">Certification</div>
                         </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/products/diamond"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
-                        >
-                          <div className="text-sm font-medium leading-none">Diamond Textured</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            86% light transmission with diamond pattern
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/technical-specs"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
-                        >
-                          <div className="text-sm font-medium leading-none">Technical Specifications</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Complete technical data and standards
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
+                    </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
+            <Link
+              href="/products"
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
+            >
+              Products
+            </Link>
             <Link
               href="/applications"
               className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
@@ -121,14 +89,25 @@ export default function Navbar() {
               Applications
             </Link>
             <Link
+              href="/projects"
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
+            >
+              Projects
+            </Link>
+            <Link
+              href="/catalogues"
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
+            >
+              Catalogues
+            </Link>
+            <Link
               href="/contact"
               className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
             >
-              Contact
+              Contact Us
             </Link>
-            <Button asChild className="hover:scale-105 transition-transform duration-200">
-              <Link href="/contact">Get Quote</Link>
-            </Button>
+            {/* Google Translate Element for Desktop */}
+            <div id="google_translate_element" className="ml-4"></div>
           </div>
 
           {/* Mobile menu button */}
@@ -160,51 +139,37 @@ export default function Navbar() {
               >
                 Home
               </Link>
+              <div className="px-3 py-2">
+                <div className="text-gray-700 font-medium mb-2">About Us</div>
+                <Link
+                  href="/about"
+                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Company Overview
+                </Link>
+                <Link
+                  href="/about#infrastructure"
+                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Infrastructure
+                </Link>
+                <Link
+                  href="/about#certification"
+                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Certification
+                </Link>
+              </div>
               <Link
-                href="/about"
+                href="/products"
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                About Us
+                Products
               </Link>
-              <div className="px-3 py-2">
-                <div className="text-gray-700 font-medium mb-2">Products</div>
-                <Link
-                  href="/products"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  All Products
-                </Link>
-                <Link
-                  href="/products/compact"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Compact (Glossy) Sheet
-                </Link>
-                <Link
-                  href="/products/embossed"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Embossed Surface
-                </Link>
-                <Link
-                  href="/products/diamond"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Diamond Textured
-                </Link>
-                <Link
-                  href="/technical-specs"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Technical Specifications
-                </Link>
-              </div>
               <Link
                 href="/applications"
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
@@ -213,19 +178,28 @@ export default function Navbar() {
                 Applications
               </Link>
               <Link
+                href="/projects"
+                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link
+                href="/catalogues"
+                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Catalogues
+              </Link>
+              <Link
                 href="/contact"
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Contact
+                Contact Us
               </Link>
-              <div className="px-3 py-2">
-                <Button asChild className="w-full">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Get Quote
-                  </Link>
-                </Button>
-              </div>
+              {/* Google Translate Element for Mobile */}
+              <div id="google_translate_element" className="px-3 py-2"></div>
             </div>
           </div>
         )}

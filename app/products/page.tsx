@@ -2,9 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import ContactCta from "@/components/sections/contact-cta"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
 
 export default function ProductsPage() {
-  const productTypes = [
+  const solidProductTypes = [
     {
       id: "compact",
       name: "1. Compact (Glossy) Sheet",
@@ -159,7 +161,7 @@ export default function ProductsPage() {
           </div>
 
           <div className="space-y-12">
-            {productTypes.map((product, index) => (
+            {solidProductTypes.map((product, index) => (
               <Card
                 key={index}
                 className="hover:shadow-xl transition-all duration-500 max-w-6xl mx-auto hover-lift animate-scale-in"
@@ -333,34 +335,8 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white animate-fade-in-up">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-slide-up">
-            <h2 className="text-3xl font-bold mb-6">Need More Information?</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Contact our experts to discuss your specific requirements and get a custom quote for your project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300"
-              >
-                <Link href="/contact">Get Quote</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent hover:scale-105 transition-all duration-300"
-              >
-                <Link href="/technical-specs">Technical Specifications</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactCta />
+      <ScrollToTop />
     </div>
   )
 }

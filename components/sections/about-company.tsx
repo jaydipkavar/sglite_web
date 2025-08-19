@@ -30,9 +30,52 @@ export default function AboutCompany() {
     },
   ]
 
+  const keyHighlights = [
+    "Product Range: Multiwall & solid polycarbonate sheets",
+    "Quality Standards: ISO 9001:2015 certified manufacturing",
+    "Features: UV resistant, lightweight, energy-efficient",
+    "Applications: Industrial, Agricultural, and Architectural projects",
+    "Technology: Advanced extrusion for precision and durability",
+    "Sustainability: Committed to eco-conscious manufacturing",
+  ]
+
   return (
     <section className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="animate-slide-in-left">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">About Us</h2>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              In a world striving for sustainable infrastructure, SGLite® polycarbonate sheets by Shree Ganesh Polymers
+              deliver durable, lightweight, and energy-efficient solutions.
+            </p>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              We manufacture multiwall and solid polycarbonate sheets in various thicknesses and colors, engineered for
+              strength, UV resistance, and design flexibility.
+            </p>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              Serving Industrial, Agricultural, and Architectural applications, we invest in innovation to create
+              sustainable, high-performance solutions. With a blend of engineering excellence and environmental
+              responsibility, every SGLite® sheet is proudly Made in India, Made for the World.
+            </p>
+          </div>
+          <div className="animate-slide-in-right">
+            <Card className="p-6 bg-white shadow-lg">
+              <CardContent className="p-0">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Highlights</h3>
+                <ul className="space-y-4">
+                  {keyHighlights.map((item, index) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <CheckCircle className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* Who We Are Section */}
         <div className="text-center mb-16 animate-slide-up">
           <Badge className="mb-4">About Shree Ganesh Polymers</Badge>

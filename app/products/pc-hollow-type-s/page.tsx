@@ -1,116 +1,136 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Download, Shield, Sun, Zap } from "lucide-react"
-import Link from "next/link"
+import Image from "next/image"
+import ContactCta from "@/components/sections/contact-cta"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
 
 export default function PCHollowTypeSPage() {
-  const specifications = [
-    { thickness: "4mm", weight: "0.7 Kg/m²", lightTransmission: "85%", uValue: "4.2 W/m²K" },
-    { thickness: "6mm", weight: "1.0 Kg/m²", lightTransmission: "83%", uValue: "3.8 W/m²K" },
-    { thickness: "8mm", weight: "1.2 Kg/m²", lightTransmission: "82%", uValue: "3.5 W/m²K" },
-    { thickness: "10mm", weight: "1.5 Kg/m²", lightTransmission: "81%", uValue: "3.1 W/m²K" },
+  const features = [
+    "Specialized multi-wall design for enhanced structural integrity",
+    "Superior thermal insulation (optimized for specific climates)",
+    "Excellent light diffusion and glare reduction",
+    "High impact resistance and durability",
+    "UV protected for long outdoor life",
+    "Lightweight and easy to handle",
+    "Available in various thicknesses and colors",
+    "Fire retardant (B1 class)",
   ]
 
-  const features = [
-    { icon: Shield, title: "Lightweight Design", description: "Easier handling and installation" },
-    { icon: Sun, title: "High Light Transmission", description: "Maximum natural light penetration" },
-    { icon: Zap, title: "Cost Effective", description: "Economical solution for various applications" },
+  const applications = [
+    "Architectural glazing requiring unique aesthetics",
+    "High-performance greenhouses and agricultural structures",
+    "Industrial buildings and warehouses",
+    "Large span roofing and skylights",
+    "Sound barriers and privacy screens",
+    "Specialized canopies and walkways",
+  ]
+
+  const technicalSpecs = [
+    { property: "Material", value: "Polycarbonate" },
+    { property: "Structure", value: "Specialized Multiwall (e.g., X-structure, Honeycomb)" },
+    { property: "Thickness Range", value: "6mm to 16mm" },
+    { property: "Light Transmission (Clear)", value: "Up to 75%" },
+    { property: "U-Value (16mm)", value: "1.9 W/m²K" },
+    { property: "Impact Strength", value: "Very High" },
+    { property: "UV Protection", value: "Co-extruded (one or both sides)" },
+    { property: "Fire Rating", value: "B1 (Self-extinguishing)" },
+    { property: "Service Temperature", value: "-40°C to +120°C" },
   ]
 
   return (
-    <div className="animate-fade-in">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-slide-up">
-            <Badge className="mb-4 bg-white bg-opacity-20">PC Hollow Sheets</Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">PC Hollow – Type S</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Single wall polycarbonate sheets offering excellent light transmission and versatile applications for
-              various architectural needs.
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 animate-fade-in">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center animate-slide-up">
+            <Badge className="mb-4 bg-white bg-opacity-20">PC Hollow Type S</Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">PC Hollow Polycarbonate Sheet - Type S</h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Specialized multi-wall design for enhanced structural integrity, superior thermal insulation, and unique
+              light diffusion.
             </p>
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              <Download className="mr-2 h-4 w-4" />
-              Download Brochure
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Product Overview */}
+      {/* Product Details */}
       <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Product Overview</h2>
-              <p className="text-gray-600 mb-6">
-                PC Hollow Type S sheets feature a single wall construction that provides an excellent balance of
-                performance and cost-effectiveness. These sheets are ideal for applications requiring high light
-                transmission and moderate thermal insulation.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                  <span>Single wall construction for lightweight applications</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                  <span>Superior light transmission up to 85%</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                  <span>Cost-effective solution for various projects</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                  <span>Easy installation and handling</span>
-                </li>
-              </ul>
-            </div>
-            <div className="animate-slide-in-right">
-              <img
-                src="/placeholder.svg?height=400&width=500&text=PC+Hollow+Type+S"
-                alt="PC Hollow Type S"
-                className="w-full h-auto rounded-lg shadow-lg"
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Image
+                src="/images/pc-hollow-type-s-placeholder.png"
+                alt="PC Hollow Type S Sheet"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
               />
             </div>
+            <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-blue-600 mb-4">Product Highlights</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {features.map((feature, index) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Ideal Applications */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Ideal Applications</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              SGLite PC Hollow Type S sheets are engineered for high-performance applications where advanced thermal
+              efficiency and structural stability are paramount.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {applications.map((app, index) => (
+              <Card key={index} className="p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <p className="text-gray-700 text-lg font-medium">{app}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Technical Specifications */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Detailed technical specifications for PC Hollow Type S sheets.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Detailed specifications for SGLite PC Hollow Polycarbonate Sheet - Type S.
             </p>
           </div>
-
-          <Card className="animate-slide-up">
-            <CardHeader>
-              <CardTitle>Specification Table</CardTitle>
-            </CardHeader>
-            <CardContent>
+          <Card className="max-w-4xl mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="p-6">
               <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
+                <table className="w-full border-collapse border border-gray-300">
                   <thead>
-                    <tr className="border-b">
-                      <th className="text-left p-4 font-semibold">Thickness</th>
-                      <th className="text-left p-4 font-semibold">Weight</th>
-                      <th className="text-left p-4 font-semibold">Light Transmission</th>
-                      <th className="text-left p-4 font-semibold">U-Value</th>
+                    <tr className="bg-blue-600 text-white">
+                      <th className="border border-gray-300 p-3 text-left">Property</th>
+                      <th className="border border-gray-300 p-3 text-left">Value</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {specifications.map((spec, index) => (
-                      <tr key={index} className="border-b hover:bg-gray-50">
-                        <td className="p-4 font-medium">{spec.thickness}</td>
-                        <td className="p-4">{spec.weight}</td>
-                        <td className="p-4">{spec.lightTransmission}</td>
-                        <td className="p-4">{spec.uValue}</td>
+                    {technicalSpecs.map((spec, index) => (
+                      <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
+                        <td className="border border-gray-300 p-3 font-medium">{spec.property}</td>
+                        <td className="border border-gray-300 p-3">{spec.value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -121,57 +141,8 @@ export default function PCHollowTypeSPage() {
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Key Features</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-shadow animate-bounce-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8">
-                  <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <feature.icon className="h-8 w-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-green-600 to-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-slide-up">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Interested in Type S Sheets?</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Get in touch with our experts for detailed information and competitive pricing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-                <Link href="/contact">Get Quote</Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download Brochure
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactCta />
+      <ScrollToTop />
     </div>
   )
 }

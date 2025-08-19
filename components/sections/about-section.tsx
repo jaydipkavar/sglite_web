@@ -1,94 +1,109 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Award, Globe } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { CheckCircle, Factory, Globe, Lightbulb, Users } from 'lucide-react'
+import Image from "next/image"
+import Link from "next/link"
 
 export default function AboutSection() {
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Who We Are</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Welcome to Shree Ganesh Polymers, a trusted manufacturer of high-quality polycarbonate sheets since 2013,
-              backed by the legacy of the Shree Ganesh Group.
-            </p>
-          </div>
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <section className="mb-12 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">About Shree Ganesh Polymers</h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Leading the way in polycarbonate sheet manufacturing with innovation, quality, and sustainability.
+        </p>
+        <Button size="lg" className="text-lg px-8 py-4">
+          <Link href="/contact">Contact Us</Link>
+        </Button>
+      </section>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Our Mission</h3>
-              <Card className="p-6 bg-blue-50 border-blue-200">
-                <CardContent className="p-0">
-                  <p className="text-gray-700 leading-relaxed">
-                    At SGLite, we are committed to delivering high-performance polycarbonate sheet solutions that are
-                    innovative, sustainable, and reliable. We aim to empower industries around the world with products
-                    that combine strength, clarity, and long-term durability—engineered with precision, manufactured
-                    with care.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="p-4 text-center">
-                <CardContent className="p-0">
-                  <div className="text-2xl font-bold text-blue-600 mb-2">2013</div>
-                  <div className="text-sm text-gray-600">Established</div>
-                </CardContent>
-              </Card>
-              <Card className="p-4 text-center">
-                <CardContent className="p-0">
-                  <div className="text-2xl font-bold text-green-600 mb-2">2000</div>
-                  <div className="text-sm text-gray-600">Group Legacy</div>
-                </CardContent>
-              </Card>
-              <Card className="p-4 text-center">
-                <CardContent className="p-0">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">100%</div>
-                  <div className="text-sm text-gray-600">Virgin Resin</div>
-                </CardContent>
-              </Card>
-              <Card className="p-4 text-center">
-                <CardContent className="p-0">
-                  <div className="text-2xl font-bold text-orange-600 mb-2">Global</div>
-                  <div className="text-sm text-gray-600">Market Reach</div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <Award className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">ISO 9001:2015</h3>
-                <p className="text-gray-600 text-sm mb-3">
-                  Certified company with focus on customer satisfaction and quality control
-                </p>
-                <Badge>Quality Assured</Badge>
-              </CardContent>
-            </Card>
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <Globe className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">IEC Registered</h3>
-                <p className="text-gray-600 text-sm mb-3">Authorized for international trade and export operations</p>
-                <Badge variant="secondary">Export Ready</Badge>
-              </CardContent>
-            </Card>
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">BIS Approved</h3>
-                <p className="text-gray-600 text-sm mb-3">
-                  Meets Indian quality and performance standards for structural reliability
-                </p>
-                <Badge variant="outline">Standards Compliant</Badge>
-              </CardContent>
-            </Card>
-          </div>
+      <section className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
+          <Image
+            src="/images/about-placeholder.png"
+            alt="Shree Ganesh Polymers Facility"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg"
+          />
         </div>
-      </div>
-    </section>
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Legacy and Vision</h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Shree Ganesh Polymers, established in 2013, is a proud extension of the Shree Ganesh Group, which began its
+            journey in 2000. With over two decades of experience in the plastic industry, we have grown to become a
+            trusted name in manufacturing high-quality polycarbonate sheets under our brand SGLite®.
+          </p>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            Our vision is to be a global leader in sustainable plastic solutions, continuously innovating to meet the
+            evolving needs of various industries while upholding the highest standards of quality and environmental
+            responsibility.
+          </p>
+        </div>
+      </section>
+
+      <Separator className="my-16" />
+
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">Why Choose SGLite®?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Factory className="text-blue-600 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">State-of-the-Art Manufacturing</CardTitle>
+            <CardContent className="text-gray-600">
+              Our 35,000 sq ft facility in Ahmedabad, Gujarat, is equipped with modern co-extrusion lines.
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <CheckCircle className="text-green-600 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">Uncompromising Quality</CardTitle>
+            <CardContent className="text-gray-600">
+              We use 100% virgin SABIC and Covestro resin, ensuring superior quality and performance in every sheet.
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Lightbulb className="text-purple-600 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">Innovation & R&D</CardTitle>
+            <CardContent className="text-gray-600">
+              Dedicated to continuous research and development to bring cutting-edge solutions to the market.
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Users className="text-orange-500 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">Customer-Centric Approach</CardTitle>
+            <CardContent className="text-gray-600">
+              Committed to understanding and fulfilling our clients' unique requirements with tailored solutions.
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Globe className="text-indigo-600 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">Global Reach</CardTitle>
+            <CardContent className="text-gray-600">
+              Serving industries worldwide with our high-performance polycarbonate sheets.
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col items-center text-center p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <CheckCircle className="text-red-600 mb-4" size={48} />
+            <CardTitle className="text-xl font-semibold mb-3">Certifications</CardTitle>
+            <CardContent className="text-gray-600">
+              ISO 9001:2015 certified, IEC registered, and BIS approved, ensuring adherence to international standards.
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Separator className="my-16" />
+
+      <section className="text-center py-12 bg-blue-50 rounded-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Join Our Journey</h2>
+        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          Partner with Shree Ganesh Polymers for durable, innovative, and sustainable plastic solutions.
+        </p>
+        <Button size="lg" className="text-lg px-8 py-4">
+          <Link href="/contact">Get in Touch</Link>
+        </Button>
+      </section>
+    </div>
   )
 }

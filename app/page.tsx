@@ -1,29 +1,25 @@
-import HeroSlider from "@/components/sections/hero-slider"
+import Hero from "@/components/sections/hero"
 import AboutCompany from "@/components/sections/about-company"
-import ProductOverview from "@/components/sections/product-overview"
-import ApplicationsDetailed from "@/components/sections/applications-detailed"
-import TechnicalSpecificationsComplete from "@/components/sections/technical-specifications-complete"
+import ProductsOverview from "@/components/sections/products-overview"
+import ApplicationsPreview from "@/components/sections/applications-preview"
+import OurProjects from "@/components/sections/our-projects"
+import WhyChooseSGLite from "@/components/sections/why-choose-sglite"
+import OurCommitment from "@/components/sections/our-commitment"
 import CallToAction from "@/components/sections/call-to-action"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
 
 export default function HomePage() {
   return (
-    <div>
-      <HeroSlider />
-      <div className="animate-fade-in-up">
-        <AboutCompany />
-      </div>
-      <div className="animate-slide-up">
-        <ProductOverview />
-      </div>
-      <div className="animate-fade-in-up">
-        <ApplicationsDetailed />
-      </div>
-      <div className="animate-slide-up">
-        <TechnicalSpecificationsComplete />
-      </div>
-      <div className="animate-fade-in-up">
-        <CallToAction />
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Hero />
+      <AboutCompany />
+      <ProductsOverview />
+      <ApplicationsPreview />
+      <OurProjects />
+      <WhyChooseSGLite />
+      <OurCommitment />
+      <CallToAction />
+      <ScrollToTop />
     </div>
   )
 }

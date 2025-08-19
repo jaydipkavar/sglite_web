@@ -2,6 +2,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Building, Factory, Shield, Lightbulb, Home, TreePine, Waves, Eye } from "lucide-react"
 import Image from "next/image"
+import ApplicationsDetailed from "@/components/sections/applications-detailed"
+import ContactCta from "@/components/sections/contact-cta"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
 
 export default function ApplicationsPage() {
   const applications = [
@@ -125,7 +128,7 @@ export default function ApplicationsPage() {
   ]
 
   return (
-    <div className="animate-fade-in">
+    <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="gradient-bg text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -252,6 +255,15 @@ export default function ApplicationsPage() {
           </div>
         </div>
       </section>
+
+      {/* Applications Detailed Section */}
+      <ApplicationsDetailed />
+
+      {/* Contact CTA Section */}
+      <ContactCta />
+
+      {/* Scroll To Top Button */}
+      <ScrollToTop />
     </div>
   )
 }

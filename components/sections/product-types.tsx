@@ -1,163 +1,183 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { ArrowRight } from 'lucide-react'
+import Image from "next/image"
 import Link from "next/link"
 
 export default function ProductTypes() {
-  const productTypes = [
-    {
-      name: "Compact (Glossy) Sheet",
-      transmission: "89%",
-      description: "High-gloss finish with excellent optical clarity and maximum light transmission.",
-      features: [
-        "Highest light transmission (89%)",
-        "Double-sided UV protection",
-        "Crystal clear visibility",
-        "Smooth, glossy surface finish",
-      ],
-      href: "/products/pc-hollow-type-2",
-    },
-    {
-      name: "Embossed Surface",
-      transmission: "88%",
-      description: "Textured surface for enhanced privacy and light diffusion with decorative appeal.",
-      features: [
-        "Enhanced privacy with light diffusion",
-        "88% light transmission",
-        "Textured surface finish",
-        "Decorative appearance",
-      ],
-      href: "/products/pc-hollow-type-s",
-    },
-    {
-      name: "Diamond (Criss-Cross Textured)",
-      transmission: "86%",
-      description: "Unique diamond pattern for decorative applications with anti-slip properties.",
-      features: [
-        "Unique diamond/criss-cross pattern",
-        "86% light transmission",
-        "Anti-slip surface properties",
-        "Decorative aesthetic appeal",
-      ],
-      href: "/products/pc-hollow-type-2",
-    },
-  ]
-
-  const colors = [
-    { name: "Clear", compact: 89, embossed: 88, diamond: 86 },
-    { name: "Opal", compact: 25, embossed: 35, diamond: 40 },
-    { name: "Bronze", compact: 26, embossed: 26, diamond: 26 },
-    { name: "Blue", compact: 29, embossed: 29, diamond: 29 },
-    { name: "Green", compact: 35, embossed: 40, diamond: 40 },
-    { name: "Smoke Grey", compact: 35, embossed: 35, diamond: 35 },
-  ]
-
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Types of Solid Polycarbonate Sheets</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            SGLite offers premium-grade solid polycarbonate sheets in various surface finishes to suit architectural,
-            industrial, and commercial needs. Each type offers unique light transmission, durability, and aesthetic
-            properties.
-          </p>
-        </div>
+    <section className="container mx-auto px-4 py-8 md:py-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">Our Product Types</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/compact-placeholder.png"
+            alt="Compact (Glossy) Sheet"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">Compact (Glossy) Sheet</CardTitle>
+            <CardDescription className="text-gray-600">
+              High light transmission with a smooth, glossy finish.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              Our Compact sheets offer exceptional clarity and impact resistance, making them ideal for architectural
+              glazing, safety barriers, and illuminated signs.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/products/compact">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
 
-        {/* Product Types */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {productTypes.map((product, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <CardTitle className="text-xl">{product.name}</CardTitle>
-                  <Badge className="bg-blue-600">{product.transmission}</Badge>
-                </div>
-                <p className="text-gray-600">{product.description}</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild variant="outline" className="w-full bg-transparent">
-                  <Link href={product.href}>Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/embossed-placeholder.png"
+            alt="Embossed Surface Sheet"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">Embossed Surface Sheet</CardTitle>
+            <CardDescription className="text-gray-600">
+              Textured surface for diffused light and enhanced aesthetics.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              These sheets provide excellent light diffusion, reducing glare while maintaining high light transmission.
+              Perfect for roofing, partitions, and decorative applications.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/products/embossed">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
 
-        {/* Light Transmission Table */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Light Transmission Values (%)</h3>
-          <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-6">
-              <p className="text-gray-600 mb-6 text-center">
-                Light transmission refers to the percentage of visible light transmitted through a polycarbonate sheet,
-                measured in accordance with ASTM D1003. Values vary based on sheet structure, pigmentation, and
-                thickness.
-              </p>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border border-gray-300 p-3 text-left">Colors</th>
-                      <th className="border border-gray-300 p-3 text-center">Compact</th>
-                      <th className="border border-gray-300 p-3 text-center">Embossed</th>
-                      <th className="border border-gray-300 p-3 text-center">Diamond</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {colors.map((color, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">{color.name}</td>
-                        <td className="border border-gray-300 p-3 text-center">{color.compact}%</td>
-                        <td className="border border-gray-300 p-3 text-center">{color.embossed}%</td>
-                        <td className="border border-gray-300 p-3 text-center">{color.diamond}%</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/diamond-placeholder.png"
+            alt="Diamond Textured Sheet"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">Diamond Textured Sheet</CardTitle>
+            <CardDescription className="text-gray-600">
+              Unique diamond pattern for superior light dispersion and privacy.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              Featuring a distinctive diamond texture, these sheets offer enhanced aesthetics and privacy, suitable for
+              decorative panels, shower enclosures, and skylights.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/products/diamond">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
 
-        {/* Available Sizes */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-8">Available Sizes</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="p-6">
-              <CardContent className="p-0 text-center">
-                <h4 className="font-semibold mb-2">Thickness</h4>
-                <p className="text-2xl font-bold text-blue-600 mb-2">1mm - 12mm</p>
-                <p className="text-gray-600 text-sm">Available in various thicknesses</p>
-              </CardContent>
-            </Card>
-            <Card className="p-6">
-              <CardContent className="p-0 text-center">
-                <h4 className="font-semibold mb-2">Width</h4>
-                <p className="text-2xl font-bold text-blue-600 mb-2">1220mm, 2100mm</p>
-                <p className="text-gray-600 text-sm">Standard width options</p>
-              </CardContent>
-            </Card>
-            <Card className="p-6">
-              <CardContent className="p-0 text-center">
-                <h4 className="font-semibold mb-2">Length</h4>
-                <p className="text-2xl font-bold text-blue-600 mb-2">2440mm, 3050mm</p>
-                <p className="text-gray-600 text-sm">May be tailored per requirement</p>
-              </CardContent>
-            </Card>
-          </div>
-          <p className="text-sm text-gray-500 mt-4">
-            * Sizes may be tailored according to customer requirements for easy handling and transportation
-          </p>
-        </div>
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/pc-hollow-type-2-placeholder.png"
+            alt="PC Hollow Sheet Type 2"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">PC Hollow Sheet Type 2</CardTitle>
+            <CardDescription className="text-gray-600">
+              Multi-wall structure for superior thermal insulation and lightweight design.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              Our Type 2 hollow sheets are engineered for excellent thermal efficiency and impact resistance, perfect
+              for roofing, canopies, and greenhouses.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/products/pc-hollow-type-2">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/pc-hollow-type-s-placeholder.png"
+            alt="PC Hollow Sheet Type S"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">PC Hollow Sheet Type S</CardTitle>
+            <CardDescription className="text-gray-600">
+              Specialized multi-wall design for enhanced structural integrity and light diffusion.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              Type S hollow sheets offer advanced thermal insulation and a unique structure for specific architectural
+              and industrial applications.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/products/pc-hollow-type-s">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/images/technical-specs-placeholder.png"
+            alt="Technical Specifications"
+            width={500}
+            height={300}
+            className="rounded-t-lg object-cover w-full h-48"
+          />
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">Technical Specifications</CardTitle>
+            <CardDescription className="text-gray-600">
+              Comprehensive data for all SGLite® polycarbonate sheets.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-700 mb-4">
+              Access detailed physical properties, performance characteristics, and certifications to ensure our
+              products meet your project needs.
+            </p>
+            <Button variant="link" asChild className="px-0 text-blue-600 hover:text-blue-800">
+              <Link href="/technical-specs">
+                View Specs <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+      <div className="text-center">
+        <Button size="lg" variant="outline" className="text-lg px-8 py-4">
+          <Link href="/products">
+            View All Products <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </Button>
       </div>
     </section>
   )

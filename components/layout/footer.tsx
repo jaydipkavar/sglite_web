@@ -1,7 +1,5 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Mail, Phone } from "lucide-react"
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import Image from "next/image"
 
 export default function Footer() {
@@ -44,13 +42,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products/pc-hollow-type-2" className="text-gray-300 hover:text-white transition-colors">
-                  PC Hollow Type ||
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/pc-hollow-type-s" className="text-gray-300 hover:text-white transition-colors">
-                  PC Hollow Type S
+                <Link href="/products" className="text-gray-300 hover:text-white transition-colors">
+                  Products
                 </Link>
               </li>
               <li>
@@ -59,24 +52,47 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/catalogues" className="text-gray-300 hover:text-white transition-colors">
+                  Catalogues
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
-                  Contact
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-gray-300 mb-4 text-sm">Subscribe to get latest updates on our products</p>
-            <div className="flex space-x-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
-              />
-              <Button size="sm">Subscribe</Button>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-2 text-sm text-gray-300">
+                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                <span>
+                  Plot No - 19, B.G. Chavda Industrial Estate,
+                  <br />
+                  Tajpur Road, BESIDE CANAL ROAD,
+                  <br />
+                  Changodar, Ahmedabad – 382213,
+                  <br />
+                  Gujarat, India
+                </span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <Phone className="h-4 w-4" />
+                <span>+91 90165 43212</span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <Mail className="h-4 w-4" />
+                <span>sgp.ahmedabad@gmail.com</span>
+              </div>
             </div>
           </div>
         </div>
@@ -84,15 +100,19 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm">© 2024 Shree Ganesh Polymers. All rights reserved.</div>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
-                <Phone className="h-4 w-4" />
-                <span>+91 XXX XXX XXXX</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
-                <Mail className="h-4 w-4" />
-                <span>info@sglite.com</span>
-              </div>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram className="h-5 w-5" />
+              </Link>
             </div>
           </div>
         </div>

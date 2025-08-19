@@ -1,223 +1,277 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function TechnicalSpecificationsComplete() {
-  const technicalData = [
-    {
-      group: "Physical",
-      properties: [
-        { property: "Density", condition: "23°C", value: "1.20", unit: "g/cm³", standard: "ISO 1183" },
-        {
-          property: "Water Absorption (24h)",
-          condition: "23°C, 50% RH",
-          value: "0.15",
-          unit: "%",
-          standard: "ASTM D570",
-        },
-      ],
-    },
-    {
-      group: "Mechanical",
-      properties: [
-        {
-          property: "Tensile Strength",
-          condition: "50 mm/min",
-          value: "60–70",
-          unit: "MPa",
-          standard: "ISO 527 / ASTM D638",
-        },
-        { property: "Elongation at Break", condition: "50 mm/min", value: "> 100", unit: "%", standard: "ISO 527" },
-        { property: "Flexural Strength", condition: "-", value: "~100", unit: "MPa", standard: "ISO 178" },
-        { property: "Modulus of Elasticity", condition: "-", value: "2300", unit: "MPa", standard: "ISO 527" },
-        {
-          property: "Izod Impact Strength",
-          condition: "Notched, 23°C",
-          value: "600–850",
-          unit: "J/m",
-          standard: "ASTM D256",
-        },
-        { property: "Rockwell Hardness", condition: "M Scale", value: "M70 / R118", unit: "-", standard: "ASTM D785" },
-      ],
-    },
-    {
-      group: "Thermal",
-      properties: [
-        {
-          property: "Heat Deflection Temperature (HDT)",
-          condition: "0.45 MPa Load",
-          value: "~140",
-          unit: "°C",
-          standard: "ISO 75",
-        },
-        { property: "Service Temperature Range", condition: "-", value: "-40 to +120", unit: "°C", standard: "-" },
-        {
-          property: "Coefficient of Linear Expansion",
-          condition: "23–55°C",
-          value: "0.065–0.07",
-          unit: "mm/m·°C",
-          standard: "ASTM D696",
-        },
-        {
-          property: "Thermal Conductivity",
-          condition: "23°C",
-          value: "0.19–0.22",
-          unit: "W/m·K",
-          standard: "ASTM C177",
-        },
-      ],
-    },
-    {
-      group: "Optical",
-      properties: [
-        {
-          property: "Light Transmission (Clear Sheet)",
-          condition: "3 mm thickness",
-          value: "85–90",
-          unit: "%",
-          standard: "ASTM D1003",
-        },
-        { property: "Haze (Clear Sheet)", condition: "3 mm", value: "< 1", unit: "%", standard: "ASTM D1003" },
-        { property: "UV Protection", condition: "Single/Double Sided", value: "Yes", unit: "-", standard: "ISO 9050" },
-      ],
-    },
-    {
-      group: "Electrical",
-      properties: [
-        {
-          property: "Dielectric Strength",
-          condition: "1 mm thickness",
-          value: "> 30",
-          unit: "kV/mm",
-          standard: "ASTM D149",
-        },
-        {
-          property: "Volume Resistivity",
-          condition: "23°C, 50% RH",
-          value: "10¹⁵",
-          unit: "ohm·cm",
-          standard: "ASTM D257",
-        },
-      ],
-    },
-    {
-      group: "Other Properties",
-      properties: [
-        {
-          property: "Flammability",
-          condition: "-",
-          value: "B1 / B-s1, d0",
-          unit: "-",
-          standard: "DIN 4102 / EN 13501-1",
-        },
-        {
-          property: "Chemical Resistance",
-          condition: "-",
-          value: "Good (see compatibility chart)",
-          unit: "-",
-          standard: "-",
-        },
-        { property: "Recyclability", condition: "-", value: "Fully Recyclable ♻", unit: "-", standard: "-" },
-        { property: "Machinability", condition: "Cutting, Drilling", value: "Easy", unit: "-", standard: "-" },
-      ],
-    },
-  ]
-
-  const lightTransmissionData = [
-    { color: "Clear", compact: 89, embossed: 88, diamond: 86 },
-    { color: "Opal", compact: 25, embossed: 35, diamond: 40 },
-    { color: "Bronze", compact: 26, embossed: 26, diamond: 26 },
-    { color: "Blue", compact: 29, embossed: 29, diamond: 29 },
-    { color: "Green", compact: 35, embossed: 40, diamond: 40 },
-    { color: "Smoke Grey", compact: 35, embossed: 35, diamond: 35 },
-  ]
-
   return (
-    <section className="py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-slide-up">
-          <Badge className="mb-4">Technical Specifications</Badge>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            Technical Specification Table for Solid Polycarbonate Sheets
-          </h2>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-            (Compact, Embossed & Diamond Finish) - Comprehensive technical data tested according to international
-            standards including ISO, ASTM, and DIN requirements.
-          </p>
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <section className="mb-12 text-center">
+        <Badge className="mb-4 text-lg px-4 py-2" variant="secondary">
+          Comprehensive Data
+        </Badge>
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+          Complete Technical Specifications for SGLite®
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Access detailed technical data, physical properties, and performance characteristics for all SGLite®
+          polycarbonate sheet types, ensuring informed decisions for your projects.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button size="lg" className="text-lg px-8 py-4">
+            <Link href="/contact">Get a Quote</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="text-lg px-8 py-4">
+            <Link href="/products">Explore Products</Link>
+          </Button>
         </div>
+      </section>
 
-        {/* Main Technical Specifications Table */}
-        <Card className="animate-slide-up mb-16">
-          <CardHeader>
-            <CardTitle>Complete Technical Specifications</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr className="bg-blue-600 text-white">
-                    <th className="border border-gray-300 p-3 text-left">Property Group</th>
-                    <th className="border border-gray-300 p-3 text-left">Property</th>
-                    <th className="border border-gray-300 p-3 text-left">Test Condition</th>
-                    <th className="border border-gray-300 p-3 text-left">Typical Value</th>
-                    <th className="border border-gray-300 p-3 text-left">Unit</th>
-                    <th className="border border-gray-300 p-3 text-left">Standard</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {technicalData.map((group, groupIndex) =>
-                    group.properties.map((prop, propIndex) => (
-                      <tr key={`${groupIndex}-${propIndex}`} className="hover:bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">{propIndex === 0 ? group.group : ""}</td>
-                        <td className="border border-gray-300 p-3">{prop.property}</td>
-                        <td className="border border-gray-300 p-3 text-sm">{prop.condition}</td>
-                        <td className="border border-gray-300 p-3 font-medium">{prop.value}</td>
-                        <td className="border border-gray-300 p-3">{prop.unit}</td>
-                        <td className="border border-gray-300 p-3 text-sm">{prop.standard}</td>
-                      </tr>
-                    )),
-                  )}
-                </tbody>
-              </table>
-            </div>
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+          General Physical Properties
+        </h2>
+        <Card className="shadow-lg">
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[200px]">Property</TableHead>
+                  <TableHead>Test Method</TableHead>
+                  <TableHead>Unit</TableHead>
+                  <TableHead className="text-right">Value</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium">Specific Gravity</TableCell>
+                  <TableCell>ASTM D792</TableCell>
+                  <TableCell>g/cm³</TableCell>
+                  <TableCell className="text-right">1.20</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Light Transmission (Compact)</TableCell>
+                  <TableCell>ASTM D1003</TableCell>
+                  <TableCell>%</TableCell>
+                  <TableCell className="text-right">89</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Light Transmission (Embossed)</TableCell>
+                  <TableCell>ASTM D1003</TableCell>
+                  <TableCell>%</TableCell>
+                  <TableCell className="text-right">88</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Light Transmission (Diamond)</TableCell>
+                  <TableCell>ASTM D1003</TableCell>
+                  <TableCell>%</TableCell>
+                  <TableCell className="text-right">86</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Haze</TableCell>
+                  <TableCell>ASTM D1003</TableCell>
+                  <TableCell>%</TableCell>
+                  <TableCell className="text-right">{"<"}1</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Tensile Strength</TableCell>
+                  <TableCell>ASTM D638</TableCell>
+                  <TableCell>MPa</TableCell>
+                  <TableCell className="text-right">{"<"}60</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Flexural Strength</TableCell>
+                  <TableCell>ASTM D790</TableCell>
+                  <TableCell>MPa</TableCell>
+                  <TableCell className="text-right">{"<"}90</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Impact Strength (Notched Izod)</TableCell>
+                  <TableCell>ASTM D256</TableCell>
+                  <TableCell>J/m</TableCell>
+                  <TableCell className="text-right">No Break</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Heat Deflection Temperature</TableCell>
+                  <TableCell>ASTM D648</TableCell>
+                  <TableCell>°C</TableCell>
+                  <TableCell className="text-right">135</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Coefficient of Thermal Expansion</TableCell>
+                  <TableCell>ASTM D696</TableCell>
+                  <TableCell>mm/m°C</TableCell>
+                  <TableCell className="text-right">0.065</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Service Temperature Range</TableCell>
+                  <TableCell>Internal</TableCell>
+                  <TableCell>°C</TableCell>
+                  <TableCell className="text-right">-40 to +120</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Fire Rating</TableCell>
+                  <TableCell>UL 94</TableCell>
+                  <TableCell>-</TableCell>
+                  <TableCell className="text-right">V-2</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
+      </section>
 
-        {/* Light Transmission Values */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">LIGHT TRANSMISSION VALUES:</h3>
-          <p className="text-gray-600 mb-8 max-w-4xl mx-auto">
-            Light transmission refers to the percentage of visible light transmitted through a polycarbonate sheet,
-            measured in accordance with ASTM D1003. Values vary based on sheet structure, pigmentation, and thickness,
-            and are critical for day lighting and glazing applications.
-          </p>
-          <Card className="max-w-3xl mx-auto">
-            <CardContent className="p-6">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border border-gray-300 p-3 text-left">Colors</th>
-                      <th className="border border-gray-300 p-3 text-center">Compact</th>
-                      <th className="border border-gray-300 p-3 text-center">Embossed</th>
-                      <th className="border border-gray-300 p-3 text-center">Diamond</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {lightTransmissionData.map((row, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">{row.color}</td>
-                        <td className="border border-gray-300 p-3 text-center font-medium">{row.compact}%</td>
-                        <td className="border border-gray-300 p-3 text-center font-medium">{row.embossed}%</td>
-                        <td className="border border-gray-300 p-3 text-center font-medium">{row.diamond}%</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
+      <Separator className="my-16" />
+
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+          Thickness and Weight Chart (Compact Sheet)
+        </h2>
+        <Card className="shadow-lg">
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Thickness (mm)</TableHead>
+                  <TableHead>Weight (kg/m²)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>1.0</TableCell>
+                  <TableCell>1.20</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>1.5</TableCell>
+                  <TableCell>1.80</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>2.0</TableCell>
+                  <TableCell>2.40</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>3.0</TableCell>
+                  <TableCell>3.60</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>4.0</TableCell>
+                  <TableCell>4.80</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>5.0</TableCell>
+                  <TableCell>6.00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>6.0</TableCell>
+                  <TableCell>7.20</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>8.0</TableCell>
+                  <TableCell>9.60</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>10.0</TableCell>
+                  <TableCell>12.00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>12.0</TableCell>
+                  <TableCell>14.40</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+
+      <Separator className="my-16" />
+
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+          Thickness and Weight Chart (PC Hollow Sheet Type 2)
+        </h2>
+        <Card className="shadow-lg">
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Thickness (mm)</TableHead>
+                  <TableHead>Weight (kg/m²)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>4</TableCell>
+                  <TableCell>0.80</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>6</TableCell>
+                  <TableCell>1.20</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>8</TableCell>
+                  <TableCell>1.50</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>10</TableCell>
+                  <TableCell>1.70</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+
+      <Separator className="my-16" />
+
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+          Thickness and Weight Chart (PC Hollow Sheet Type S)
+        </h2>
+        <Card className="shadow-lg">
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Thickness (mm)</TableHead>
+                  <TableHead>Weight (kg/m²)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>6</TableCell>
+                  <TableCell>1.30</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>8</TableCell>
+                  <TableCell>1.60</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>10</TableCell>
+                  <TableCell>1.90</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="text-center py-12 bg-blue-50 rounded-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Need More Information?</h2>
+        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          Download our complete technical data sheet or contact our experts for detailed inquiries.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button size="lg" className="text-lg px-8 py-4">
+            <Link href="/downloads">Download Data Sheet</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="text-lg px-8 py-4">
+            <Link href="/contact">Contact Sales</Link>
+          </Button>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

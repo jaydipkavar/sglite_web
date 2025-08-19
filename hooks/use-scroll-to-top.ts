@@ -1,15 +1,29 @@
-"use client"
+import { useState, useEffect, useCallback } from "react"
 
-import { useEffect } from "react"
-import { usePathname } from "next/navigation"
+export function useScrollToTop(threshold = 200) {
+  const [showScrollToTop, setShowScrollToTop] = useState(false)
 
-export function useScrollToTop() {
-  const pathname = usePathname()
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > threshold) {
+      setShowScrollToTop(true)
+    } else {
+      setShowScrollToTop(false)
+    }
+  }, [threshold])
 
-  useEffect(() => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     })
-  }, [pathname])
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [handleScroll])
+
+  return { showScrollToTop, scrollToTop }
 }
