@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,15 +11,20 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (path: string) =>
+    pathname === path || pathname.startsWith(path + "#");
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
+          {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <img
@@ -33,7 +39,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
+              className={`font-medium transition-colors duration-200 hover:scale-105 transform ${
+                isActive("/")
+                  ? "text-blue-600 border-b-2 border-blue-600"
+                  : "text-gray-700 hover:text-blue-600"
+              }`}
             >
               Home
             </Link>
@@ -41,7 +51,13 @@ export default function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 font-medium">
+                  <NavigationMenuTrigger
+                    className={`font-medium ${
+                      isActive("/about")
+                        ? "text-blue-600"
+                        : "text-gray-700 hover:text-blue-600"
+                    }`}
+                  >
                     About Us
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -49,25 +65,43 @@ export default function Navbar() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/about"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
+                          className={`block rounded-md p-3 transition-colors duration-200 ${
+                            isActive("/about")
+                              ? "bg-blue-100 text-blue-700"
+                              : "hover:bg-gray-100 hover:text-blue-600 focus:bg-gray-100 focus:text-blue-600"
+                          }`}
                         >
-                          <div className="text-sm font-medium leading-none">Company Overview</div>
+                          <div className="text-sm font-medium">
+                            Company Overview
+                          </div>
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
                         <Link
                           href="/about#infrastructure"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
+                          className={`block rounded-md p-3 transition-colors duration-200 ${
+                            pathname.includes("#infrastructure")
+                              ? "bg-blue-100 text-blue-700"
+                              : "hover:bg-gray-100 hover:text-blue-600 focus:bg-gray-100 focus:text-blue-600"
+                          }`}
                         >
-                          <div className="text-sm font-medium leading-none">Infrastructure</div>
+                          <div className="text-sm font-medium">
+                            Infrastructure
+                          </div>
                         </Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild>
                         <Link
                           href="/about#certification"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground hover:scale-105 transform duration-200"
+                          className={`block rounded-md p-3 transition-colors duration-200 ${
+                            pathname.includes("#certification")
+                              ? "bg-blue-100 text-blue-700"
+                              : "hover:bg-gray-100 hover:text-blue-600 focus:bg-gray-100 focus:text-blue-600"
+                          }`}
                         >
-                          <div className="text-sm font-medium leading-none">Certification</div>
+                          <div className="text-sm font-medium">
+                            Certification
+                          </div>
                         </Link>
                       </NavigationMenuLink>
                     </ul>
@@ -76,47 +110,41 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Link
-              href="/products"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              Products
-            </Link>
-            <Link
-              href="/applications"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              Applications
-            </Link>
-            <Link
-              href="/projects"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/catalogues"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              Catalogues
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium hover:scale-105 transform"
-            >
-              Contact Us
-            </Link>
-            {/* Google Translate Element for Desktop */}
+            {[
+              "/products",
+              "/applications",
+              "/projects",
+              "/catalogues",
+              "/contact",
+            ].map((link) => (
+              <Link
+                key={link}
+                href={link}
+                className={`font-medium transition-colors duration-200 hover:scale-105 transform ${
+                  isActive(link)
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
+              >
+                {link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
+              </Link>
+            ))}
+
+            {/* Google Translate */}
             <div id="google_translate_element" className="ml-4"></div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none hover:scale-110 transition-transform duration-200"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -132,78 +160,37 @@ export default function Navbar() {
                   className="h-10 w-auto"
                 />
               </div>
-              <Link
-                href="/"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </Link>
-              <div className="px-3 py-2">
-                <div className="text-gray-700 font-medium mb-2">About Us</div>
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "Company Overview" },
+                { href: "/about#infrastructure", label: "Infrastructure" },
+                { href: "/about#certification", label: "Certification" },
+                { href: "/products", label: "Products" },
+                { href: "/applications", label: "Applications" },
+                { href: "/projects", label: "Projects" },
+                { href: "/catalogues", label: "Catalogues" },
+                { href: "/contact", label: "Contact Us" },
+              ].map(({ href, label }) => (
                 <Link
-                  href="/about"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
+                  key={href}
+                  href={href}
+                  className={`block px-3 py-2 rounded-md transition-all duration-200 ${
+                    isActive(href)
+                      ? "bg-blue-100 text-blue-700 font-medium"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  Company Overview
+                  {label}
                 </Link>
-                <Link
-                  href="/about#infrastructure"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Infrastructure
-                </Link>
-                <Link
-                  href="/about#certification"
-                  className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Certification
-                </Link>
-              </div>
-              <Link
-                href="/products"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Products
-              </Link>
-              <Link
-                href="/applications"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Applications
-              </Link>
-              <Link
-                href="/projects"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Projects
-              </Link>
-              <Link
-                href="/catalogues"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Catalogues
-              </Link>
-              <Link
-                href="/contact"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact Us
-              </Link>
-              {/* Google Translate Element for Mobile */}
+              ))}
+
+              {/* Google Translate */}
               <div id="google_translate_element" className="px-3 py-2"></div>
             </div>
           </div>
         )}
       </div>
     </nav>
-  )
+  );
 }
