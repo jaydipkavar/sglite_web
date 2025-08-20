@@ -82,8 +82,8 @@ export default function AboutPage() {
             SGLite® by Shree Ganesh Polymers
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto animate-fade-in">
-            Leading manufacturer of solid polycarbonate sheets with over two
-            decades of excellence in plastic extrusion technology since 2013.
+            Leading manufacturer of polycarbonate sheets with over two decades
+            of excellence in plastic extrusion technology since 2013.
           </p>
         </div>
       </section>
@@ -170,6 +170,10 @@ export default function AboutPage() {
                 <li>
                   Build long-term global partnerships with trust and
                   transparency.
+                </li>
+                <li>
+                  SGLite® represents more than sheets – it reflects our core
+                  values in every product we deliver.
                 </li>
               </ul>
             </div>
